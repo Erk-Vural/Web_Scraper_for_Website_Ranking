@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="form">
+        <form method="post">
+            <input type="text" placeholder="Enter URL..." name="url" size="30">
+            <button type="submit">Go</button>
+        </form>
+    </div>
+    <div class="output">
+        <h2>Okunan Url Raporu: </h2>
+        <br>
+        {% if is_post %}
+            {% set list2 = report.split('\n') %}
+            {% for line in list2 %}
+                <p>{{ line }}</p>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <hr>
+        <h2>Url'de gecen kelime sayilari: </h2>
+        <br>
+        {% if is_post %}
+            {% for word in word_count %}
+                <p> Word: {{ word[0] }} Count: {{ word[1] }}</p>
+            {% endfor %}
+        {% endif %}
+        <br>
+    </div>
+{% endblock %}

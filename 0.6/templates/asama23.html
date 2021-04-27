@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="form">
+        <form method="post">
+            <input type="text" placeholder="Enter URL 1 ..." name="url" size="30">
+            <input type="text" placeholder="Enter URL 2 ..." name="url2" size="30">
+            <button type="submit">Go</button>
+        </form>
+    </div>
+    <div class="output">
+        <div class="keyword">
+            <div class="url1alone">
+                <h2>Okunan Url1 Kelimeleri: </h2>
+                {% if is_post %}
+                    {% for word in word_count %}
+                        <p>Word: {{ word[0] }} Count: {{ word[1] }}</p>
+                    {% endfor %}
+                {% endif %}
+                <hr>
+            </div>
+            <div class="url1">
+                <h2>Url1 Anahtar Kelimeleri: </h2>
+                {% if is_post %}
+                    {% for key_word in key_word1 %}
+                        <p>Keyword: {{ key_word[0] }} Count: {{ key_word[1] }}</p>
+                    {% endfor %}
+                {% endif %}
+                <hr>
+            </div>
+            <div class="url2">
+                <h2>Url2 Anahtar Kelimeleri: </h2>
+                {% if is_post %}
+                    {% for key_word in key_word2 %}
+                        <p>Keyword: {{ key_word[0] }} Count: {{ key_word[1] }}</p>
+                    {% endfor %}
+                {% endif %}
+                <hr>
+            </div>
+            <hr>
+        </div>
+        <div class="similarity">
+            <h2>Url1 - Url2 Benzerlik Oranlari: </h2>
+            {% if is_post %}
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
